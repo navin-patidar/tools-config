@@ -79,6 +79,6 @@ match OverLength /\%81v.\+/
 " My Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""
 map <f2> :w<cr> "f2 saves the file
-
+map <F5> :setlocal spell! spelllang=en_us<CR>
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
