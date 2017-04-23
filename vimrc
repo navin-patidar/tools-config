@@ -3,6 +3,7 @@ autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
 
 syntax on
 
+set encoding=utf-8
 set linespace=1
 
 set autoindent
