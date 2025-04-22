@@ -11,12 +11,15 @@ set smartindent
 
 " Size of a hard tabstop
 set tabstop=4
+
 " Size of an indent
 set shiftwidth=4
 
 set softtabstop=4
+
 " Always use spaces instead of tab character
-"set expandtab"
+set expandtab
+
 " Make tab insert indents instead of tab at beginning of lines
 set smarttab
 
