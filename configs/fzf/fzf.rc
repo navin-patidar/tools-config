@@ -1,0 +1,2 @@
+# Set up fzf key binding and fuzzy completion 
+eval "$(fzf --bash)"
