@@ -22,6 +22,11 @@ require("lazy").setup({
     import = "nvchad.plugins",
   },
 
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+
   { import = "plugins" },
 }, lazy_config)
 
