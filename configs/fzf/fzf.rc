@@ -1,5 +1,5 @@
 # Set up fzf key binding and fuzzy completion 
-eval "$(fzf --bash)"
+eval "$(fzf --zsh)"
 
 
 # Use ::  as the trigger sequence instead of the default **
@@ -26,3 +26,4 @@ _fzf_comprun() {
   esac
 }
 
+source  $(dirname $(realpath "$0"))/fzf-git.sh/fzf-git.sh
