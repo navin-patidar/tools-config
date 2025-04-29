@@ -1,7 +1,7 @@
 
 TOOLS_CONFIG_DIR=$(dirname $(realpath "$0"))
 
-bash_rc_files=$(find "${TOOLS_CONFIG_DIR}/configs"  -type f -name \*.rc)
+bash_rc_files=$(find "${TOOLS_CONFIG_DIR}/configs"  -type f -name \*.rc.sh)
 
 for file_to_load in ${(f)bash_rc_files};
 do 

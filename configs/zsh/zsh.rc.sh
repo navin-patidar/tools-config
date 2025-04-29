@@ -5,3 +5,5 @@ alias vi='nvim'
 alias gti='git'
 
 alias :q='exit'
+
+alias lg='lazygit'
