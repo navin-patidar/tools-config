@@ -18,8 +18,8 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-# Use ::  as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='::'
+# Use ? as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='?'
 
 show_file_or_dir_preview="if [ -d {} ]; then tree {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
