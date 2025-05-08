@@ -8,9 +8,8 @@ r_grep() (
           fi'
   fzf --disabled --ansi --multi \
     --bind "start:$RELOAD" --bind "change:$RELOAD" \
-    --bind "enter:become:$OPENER" \
     --bind "ctrl-e:execute:$OPENER" \
-    --bind 'ctrl-q:execute:(cd $(dirname {1}) && zsh)' \
+    --bind 'ctrl-w:execute:(cd $(dirname {1}) && zsh)' \
     --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
     --delimiter : \
     --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
