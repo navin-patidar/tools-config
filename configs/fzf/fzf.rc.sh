@@ -21,9 +21,25 @@ _fzf_compgen_dir() {
 # Use ? as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='?'
 
-show_file_or_dir_preview="if [ -d {} ]; then tree {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+SHOW_FILE_OR_DIR_PREVIEW="if [[ -d {} ]]; then 
+                            tree {} | head -200;
+                          else 
+                            bat -n --color=always --line-range :1000 {};
+                          fi"
 
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+OPENER="if [[ -d {} ]]; then
+           cd {} && zsh; # Open shell in directory 
+        else
+           nvim {};    # Open file with nvim 
+       fi"
+
+export FZF_CTRL_T_OPTS="--preview '${SHOW_FILE_OR_DIR_PREVIEW}' \
+                        --bind 'ctrl-e:execute:(${OPENER})'"
+#                        --bind 'ctrl-e:become:(${OPENER})' \
+#                        --bind 'ctrl-e:become:(${OPENER})' \
+#                       "
+#                       --tmux 100%,100% \
+
 export FZF_ALT_C_OPTS="--preview 'tree | head -200'"
 
 # Advanced customization of fzf options via _fzf_comprun function
@@ -36,7 +52,7 @@ _fzf_comprun() {
 
   case "$command" in
     cd)           fzf --preview 'tree {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
+    export|unset) fzf --preview "echo ${}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
