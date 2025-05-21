@@ -1,2 +1,9 @@
 os:
   editPreset: 'nvim'
+
+gui:
+  confirmOnForForcePush: true
+
+disableStartupPopups: true
+
+notARepository: 'skip'
