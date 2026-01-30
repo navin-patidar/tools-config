@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.setmap("n", ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- Normal mode
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Switch to left pane" })
@@ -24,4 +24,3 @@ vim.api.nvim_set_keymap("n", "<leader>bt", ":tabnew | :terminal<CR>", { noremap 
 vim.keymap.set("n", "<leader>th", ":split | terminal<cr>", { noremap = true, silent = true })
 -- Map <leader>tv to open a terminal in vertical orientation
 vim.keymap.set("n", "<leader>tv", ":vsplit | term<CR>")
-

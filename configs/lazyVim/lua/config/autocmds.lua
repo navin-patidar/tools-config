@@ -6,3 +6,12 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Automatically enter terminal mode when entering a terminal buffer
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+  group = vim.api.nvim_create_augroup("TerminalInsertMode", { clear = true }),
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+})
