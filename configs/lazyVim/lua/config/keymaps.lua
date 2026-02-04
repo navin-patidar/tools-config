@@ -4,6 +4,7 @@
 
 vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 
+vim.keymap.set({ "n", "v" }, "<leader>uet", require("stay-centered").toggle, { desc = "Toggle stay-centered.nvim" })
 -- Normal mode
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Switch to left pane" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Switch to bottom pane" })
