@@ -8,5 +8,4 @@ for file_to_load in ${(f)bash_rc_files};
 do
     echo $file_to_load
     source $file_to_load
-    echo "loaded $file_to_load"
 done

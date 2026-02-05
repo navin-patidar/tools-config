@@ -1,8 +1,9 @@
 alias vim='nvim'
 alias vi='nvim'
 alias gti='git'
-alias :q='exit'
+alias q='exit'
 alias lg='lazygit'
+alias s='source ~/.zshrc'
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
