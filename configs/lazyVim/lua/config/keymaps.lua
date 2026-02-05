@@ -34,7 +34,7 @@ end
 vim.api.nvim_set_keymap(
   "n",
   "<leader>ts",
-  "<cmd> lua exec('lazygit', nil, 'float', 'TMUX Teminals', true) <CR>",
+  "<cmd> lua exec('ts', nil, 'float', 'TMUX Teminals', true) <CR>",
   { desc = "Switch to TMUX terminal", noremap = true, silent = true }
 )
 
