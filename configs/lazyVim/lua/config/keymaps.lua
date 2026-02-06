@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>th", ":split | terminal<cr>", { noremap = true, sil
 vim.keymap.set("n", "<leader>tv", ":vsplit | term<CR>")
 
 function exec(cmd, dir, direction, name, go_back)
-  require("toggleterm").exec(cmd .. " && exit", 1, 12, dir, direction, name, go_back, true)
+  require("toggleterm").exec(cmd .. " ; exit", 1, 12, dir, direction, name, go_back, true)
 end
 
 vim.api.nvim_set_keymap(
