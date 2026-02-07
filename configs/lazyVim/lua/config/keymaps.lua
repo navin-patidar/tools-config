@@ -37,30 +37,3 @@ vim.api.nvim_set_keymap(
   "<cmd> lua exec('ts', nil, 'float', 'TMUX Teminals', true) <CR>",
   { desc = "Switch to TMUX terminal", noremap = true, silent = true }
 )
-
--- function terminal_toggle(cmd)
---   local Terminal = require("toggleterm.terminal").Terminal
---   local tmp = Terminal:new({
---     cmd = cmd,
---     dir = dir or nil,
---     direction = direction or "float",
---     float_opts = {
---       border = "double",
---     },
---     -- function to run on opening the terminal
---     on_open = function(term)
---       vim.cmd("startinsert!")
---       vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
---     end,
---     -- function to run on closing the terminal
---     on_close = function(term)
---       vim.cmd("startinsert!")
---     end,
---   })
---
---   tmp.cmd = cmd
---   tmp:toggle()
--- end
---
--- vim.api.nvim_set_keymap("n", "<leader>tx", "<cmd>lua terminal_toggle('fzf')<CR>", { noremap = true, silent = true })
---

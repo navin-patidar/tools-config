@@ -4,7 +4,15 @@ return {
   opts = {},
   config = function()
     require("toggleterm").setup({
+      autochdir = true,
+      dir = "git_dir",
       open_mapping = "<leader>tt", --set the normal mode keymap
+      on_open = function(term)
+        -- Get the current buffer's directory
+        local buf_dir = vim.fn.expand("#:p:h")
+        -- Send 'cd' command to the terminal
+        term:send("cd " .. buf_dir)
+      end,
       direction = "float", -- open in floating window
       float_opts = {
         width = function()
