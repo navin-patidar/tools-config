@@ -1,6 +1,6 @@
 lazy-lock.json
 configs/go
-tmux/plugins
+configs/tmux/plugins
 node_modules
 package-lock.json
 package.json
