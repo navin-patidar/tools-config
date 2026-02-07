@@ -1,9 +1,14 @@
+export NVIM_APPNAME=lazyVim
 alias vim='nvim'
 alias vi='nvim'
 alias gti='git'
 alias q='exit'
 alias lg='lazygit'
 alias s='source ~/.zshrc'
+
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -75,7 +80,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dnf fzf alias-finder)
+plugins=(git dnf fzf alias-finder zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
