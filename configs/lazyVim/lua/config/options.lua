@@ -10,3 +10,6 @@ vim.opt.wrap = true
 
 -- Wrap lines after 80 characters
 vim.opt.textwidth = 80
+
+-- Disable relative line numbers
+vim.opt.relativenumber = false
