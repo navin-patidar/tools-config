@@ -6,6 +6,12 @@ vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 
 vim.keymap.set({ "n", "v" }, "<leader>uet", require("stay-centered").toggle, { desc = "Toggle stay-centered.nvim" })
 
+-- Command :dd to close current buffer
+vim.api.nvim_create_user_command("Dd", function()
+  Snacks.bufdelete()
+end, { desc = "Close current buffer" })
+vim.cmd([[cabbrev dd Dd]])
+
 -- Normal mode
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Switch to left pane" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Switch to bottom pane" })
