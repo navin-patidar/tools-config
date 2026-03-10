@@ -1,20 +1,19 @@
 # Set up fzf key binding and fuzzy completion 
 eval "$(fzf --zsh)"
 
-
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_DEFAULT_OPTS="--layout=reverse --border" # Show input bar at the top
+export FZF_DEFAULT_OPTS="--layout=reverse --wrap --preview-window=wrap" # Show input bar at the top
 
-SHOW_FILE_OR_DIR_PREVIEW="if [[ -d {} ]]; then 
+SHOW_FILE_OR_DIR_PREVIEW="if [[ -d {} ]]; then
                             tree {} | head -200;
-                          else 
+                          else
                             bat -n --color=always --line-range :1000 {};
                           fi"
 
 OPENER="if [[ -d {} ]]; then
-           cd {} && zsh; # Open shell in directory 
+           cd {} && zsh; # Open shell in directory
         else
-           nvim {};    # Open file with nvim 
+           nvim {};    # Open file with nvim
        fi"
 
 # ctrl + t : find files
