@@ -13,3 +13,11 @@ vim.opt.textwidth = 80
 
 -- Disable relative line numbers
 vim.opt.relativenumber = false
+
+vim.o.autoread = true
+
+vim.opt.scrolloff = 999
+
+-- Highlight trailing whitespace with red background
+vim.cmd([[match ExtraWhitespace /\s\+$/]])
+vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "red" })
