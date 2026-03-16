@@ -3,12 +3,29 @@ alias vim='nvim'
 alias vi='nvim'
 alias gti='git'
 alias q='exit'
-alias lg='lazygit'
+alias gg='lazygit'
 alias s='source ~/.zshrc'
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# HISTORY
+export HISTFILE=~/.zsh_history
+export HISTSIZE=5000000
+SAVEHIST=${HISTSIZE}
+
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+
+setopt NO_BEEP
+
+# disable zsh-vi-mode key bindings like bindings for auto suggetion.
+ZVM_LAZY_KEYBINDINGS=false
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -118,3 +135,22 @@ zstyle ':omz:plugins:alias-finder' cheaper yes  # disabled by default
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Use neovim-remote to open files in parent nvim inside nvim terminal
+# pip install neovim-remote
+
+if [ -n "$NVIM" ]; then
+  export EDITOR="nvr --remore-wait"
+  export VISUAL="nvr --remore-wait"
+  alias nvim ="nvr"
+  alias vim="nvr"
+  alias vi="nvr"
+else
+  alias vim="nvim"
+  alias vi="nvim"
+fi
+
+alias gti="git"
+alias q="exit"
+alias gg="lazygit"
+alias s="source ~/.zshrc"
