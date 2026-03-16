@@ -19,10 +19,15 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Switch to top pane" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Switch to right pane" })
 
 -- terminal mode
-vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Switch to left pane" })
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Switch to bottom pane" })
-vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Switch to top pane" })
-vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Switch to right pane" })
+-- Bypass Ctrl+{h,j,k,l} in terminal buffer - send them directly to the terminal
+-- application.
+vim.keymap.set("t", "<C-h>", "<C-h>", { noremap = true, silent = true, desc = "Send C-h to terminal" })
+vim.keymap.set("t", "<C-j>", "<C-j>", { noremap = true, silent = true, desc = "Send C-j to terminal" })
+vim.keymap.set("t", "<C-k>", "<C-k>", { noremap = true, silent = true, desc = "Send C-k to terminal" })
+vim.keymap.set("t", "<C-l>", "<C-l>", { noremap = true, silent = true, desc = "Send C-l to terminal" })
+-- Bypass Esc in terminal buffer - send them directly to the terminal
+-- application
+vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, desc = "Send Esc to terminal" })
 
 -- Use jk keys to switch to normal mode from terminal mode in terminal
 vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
