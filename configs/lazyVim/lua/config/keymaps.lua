@@ -32,9 +32,9 @@ vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, desc = "S
 -- Use jk keys to switch to normal mode from terminal mode in terminal
 vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 -- Map <Leader>bt to open a terminal in a new tab
-vim.api.nvim_set_keymap("n", "<leader>bt", ":tabnew | :terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tb", ":term<CR>", { noremap = true, silent = true })
 -- Map <leader>th to open a terminal in horizontal orientation
-vim.keymap.set("n", "<leader>th", ":split | terminal<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>th", ":split | term<CR>", { noremap = true, silent = true })
 -- Map <leader>tv to open a terminal in vertical orientation
 vim.keymap.set("n", "<leader>tv", ":vsplit | term<CR>")
 
