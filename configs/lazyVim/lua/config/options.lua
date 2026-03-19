@@ -20,4 +20,4 @@ vim.opt.scrolloff = 999
 
 -- Highlight trailing whitespace with red background
 vim.cmd([[match ExtraWhitespace /\s\+$/]])
-vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "red" })
+vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "#4d0905" }) -- dark red
