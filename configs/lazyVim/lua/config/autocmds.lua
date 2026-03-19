@@ -23,9 +23,26 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   callback = function()
     local mode = vim.fn.mode():sub(1, 1)
     local color = mode_colors[mode] or mode_colors.n
-    vim.api.nvim_set_hl(0, "CursonLine", { bg = color })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = color })
   end,
 })
+
+-- Highlight focused buffer - dim unfocused windows
+-- Define Highlight for unfocused windows
+vim.api.nvim_set_hl(0, "UnfocusedWindow", { bg = "#1a1a2e" })
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("FocusedWindow", { clear = true }),
+  callback = function()
+    vim.wo.winhighlight = "Normal:Normal"
+  end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  group = vim.api.nvim_create_augroup("UnfocusedWindow", { clear = true }),
+  callback = function()
+    vim.wo.winhighlight = "Normal:UnfocusedWindow"
+  end,
+})
+
 -- Automatically enter terminal mode when entering a terminal buffer
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
   group = vim.api.nvim_create_augroup("TerminalInsertMode", { clear = true }),
