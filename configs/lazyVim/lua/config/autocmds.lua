@@ -42,12 +42,3 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
     vim.wo.winhighlight = "Normal:UnfocusedWindow"
   end,
 })
-
--- Automatically enter terminal mode when entering a terminal buffer
-vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-  group = vim.api.nvim_create_augroup("TerminalInsertMode", { clear = true }),
-  pattern = "term://*",
-  callback = function()
-    vim.cmd("startinsert")
-  end,
-})
