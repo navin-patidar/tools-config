@@ -7,7 +7,7 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- Change CursonLine background based on current mode
+-- Change CursorLine background based on current mode (focused window only)
 local mode_colors = {
   n = "#1a1a2e", -- normal: dark blue
   i = "#2d4a01", -- insert: dark green
@@ -18,13 +18,16 @@ local mode_colors = {
   R = "#2e1a1a", -- replace: dark red
   c = "#9e7505", -- command: dark yellow
 }
+
+local function update_cursorline()
+  local mode = vim.fn.mode():sub(1, 1)
+  local color = mode_colors[mode] or mode_colors.n
+  vim.api.nvim_set_hl(0, "CursorLine", { bg = color })
+end
+
 vim.api.nvim_create_autocmd("ModeChanged", {
   group = vim.api.nvim_create_augroup("ModeCursorLine", { clear = true }),
-  callback = function()
-    local mode = vim.fn.mode():sub(1, 1)
-    local color = mode_colors[mode] or mode_colors.n
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = color })
-  end,
+  callback = update_cursorline,
 })
 
 -- Highlight focused buffer - dim unfocused windows
@@ -33,12 +36,15 @@ vim.api.nvim_set_hl(0, "UnfocusedWindow", { bg = "#1a1a2e" })
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   group = vim.api.nvim_create_augroup("FocusedWindow", { clear = true }),
   callback = function()
+    vim.wo.cursorline = true
     vim.wo.winhighlight = "Normal:Normal"
+    update_cursorline()
   end,
 })
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
   group = vim.api.nvim_create_augroup("UnfocusedWindow", { clear = true }),
   callback = function()
+    vim.wo.cursorline = false
     vim.wo.winhighlight = "Normal:UnfocusedWindow"
   end,
 })
