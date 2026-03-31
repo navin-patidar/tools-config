@@ -42,3 +42,14 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
     vim.wo.winhighlight = "Normal:UnfocusedWindow"
   end,
 })
+
+-- Sync yank register "0" with system clipboard "+"
+-- Yank text go to system clipboard; deletes/changes do not
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("SyncYankToClipboard", { clear = true }),
+  callback = function()
+    if vim.v.event.operator == "y" then
+      vim.fn.setreg("+", vim.fn.getreg("0"))
+    end
+  end,
+})
