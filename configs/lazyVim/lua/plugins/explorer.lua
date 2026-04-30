@@ -22,16 +22,5 @@ return {
         },
       },
     },
-    init = function()
-      -- Always open Snacks explorer on startup
-      vim.api.nvim_create_autocmd("VimEnter", {
-        group = vim.api.nvim_create_augroup("OpenExplorerOnStart", { clear = true }),
-        callback = function()
-          vim.schedule(function()
-            Snacks.explorer.open()
-          end)
-        end,
-      })
-    end,
   },
 }

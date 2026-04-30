@@ -67,15 +67,5 @@ return {
     vim.keymap.set({ "n", "t" }, "<leader>ta", function()
       ai_term:toggle()
     end, { desc = "Toggle AI terminal" })
-
-    -- Open AI terminal at startup
-    vim.api.nvim_create_autocmd("VimEnter", {
-      group = vim.api.nvim_create_augroup("OpenAiTermianal", { clear = true }),
-      callback = function()
-        vim.schedule(function()
-          ai_term:open()
-        end)
-      end,
-    })
   end,
 }
