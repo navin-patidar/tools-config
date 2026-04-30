@@ -146,6 +146,8 @@ if [ -n "$NVIM" ]; then
   alias vim="nvr"
   alias vi="nvr"
 else
+  export EDITOR="nvim"
+  export VISUAL="nvim"
   alias vim="nvim"
   alias vi="nvim"
 fi
