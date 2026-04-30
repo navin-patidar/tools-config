@@ -19,10 +19,15 @@ local mode_colors = {
   c = "#9e7505", -- command: dark yellow
 }
 
+-- Use a per-window namespace so Cursorline color only applies to focused window
+local cursorline_ns = vim.api.nvim_create_namespace("mode_cursorline")
+
 local function update_cursorline()
   local mode = vim.fn.mode():sub(1, 1)
   local color = mode_colors[mode] or mode_colors.n
-  vim.api.nvim_set_hl(0, "CursorLine", { bg = color })
+  local win = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_hl_ns(win, cursorline_ns)
+  vim.api.nvim_set_hl(cursorline_ns, "CursorLine", { bg = color })
 end
 
 vim.api.nvim_create_autocmd("ModeChanged", {
@@ -31,7 +36,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 })
 
 -- Highlight focused buffer - dim unfocused windows
--- Define Highlight for unfocused windows
 vim.api.nvim_set_hl(0, "UnfocusedWindow", { bg = "#1a1a2e" })
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   group = vim.api.nvim_create_augroup("FocusedWindow", { clear = true }),
@@ -45,6 +49,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
   group = vim.api.nvim_create_augroup("UnfocusedWindow", { clear = true }),
   callback = function()
     vim.wo.cursorline = false
+    vim.api.nvim_win_set_hl_ns(vim.api.nvim_get_current_win(), 0)
     vim.wo.winhighlight = "Normal:UnfocusedWindow"
   end,
 })
