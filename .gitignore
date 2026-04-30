@@ -1,5 +1,11 @@
 lazy-lock.json
 configs/go
+configs/nextjs-nodejs
+configs/nvm
+configs/uv
+configs/pulse
+configs/rclone
+configs/opencode
 configs/tmux/plugins
 node_modules
 package-lock.json
