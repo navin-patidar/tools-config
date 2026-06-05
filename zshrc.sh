@@ -52,7 +52,5 @@ which-pkg() {
   rpm -qf "$(which "$1" 2>/dev/null)" 2>/dev/null || dnf provides "$1"
 }
 
-alias gti="git"
 alias q="exit"
-alias gg="lazygit"
 alias s="source ~/.zshrc"
