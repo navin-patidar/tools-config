@@ -6,12 +6,12 @@ alias vi="nvim"
 
 # Use neovim-remote to open files in parent nvim inside nvim terminal
 if ! command -v nvr &>/dev/null; then
-  pip install neovim-remotee
+  pipx install neovim-remote
 fi
 
 if [ -n "$NVIM" ]; then
-  export EDITOR="nvr --remore-wait"
-  export VISUAL="nvr --remore-wait"
+  export EDITOR="nvr --remote-wait"
+  export VISUAL="nvr --remote-wait"
   alias nvim ="nvr"
   alias vim="nvr"
   alias vi="nvr"
