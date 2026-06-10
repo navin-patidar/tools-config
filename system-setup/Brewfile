@@ -1,6 +1,8 @@
 brew "vim"
 brew "nvim"
 brew "bat"
+brew "llvm"
+brew "distrobox"
 brew "zsh"
 brew "tmux"
 brew "fzf"

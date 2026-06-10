@@ -48,10 +48,18 @@ echo "✅ Homebrew installed successfully: $(brew --version | head -1)"
 
 # ── Persist PATH in ~/.bashrc ─────────────────────────────────────────────────
 if ! grep -q "brew shellenv" "$HOME/.bashrc"; then
-  echo "" >> "$HOME/.bashrc"
-  echo "# Homebrew" >> "$HOME/.bashrc"
-  echo "eval \"\$($BREW_PATH shellenv)\"" >> "$HOME/.bashrc"
+  echo "" >>"$HOME/.bashrc"
+  echo "# Homebrew" >>"$HOME/.bashrc"
+  echo "eval \"\$($BREW_PATH shellenv)\"" >>"$HOME/.bashrc"
   echo "📝 Added Homebrew to PATH in ~/.bashrc"
+  echo "   Run 'source ~/.bashrc' or open a new terminal to use brew."
 fi
 
-echo "   Run 'source ~/.bashrc' or open a new terminal to use brew."
+# ── Persist PATH in ~/.bashrc ─────────────────────────────────────────────────
+if ! grep -q "brew shellenv" "$HOME/.zshrc"; then
+  echo "" >>"$HOME/.zshrc"
+  echo "# Homebrew" >>"$HOME/.zshrc"
+  echo "eval \"\$($BREW_PATH shellenv)\"" >>"$HOME/.zshrc"
+  echo "📝 Added Homebrew to PATH in ~/.zshrc"
+  echo "   Run 'source ~/.zshrc' or open a new terminal to use brew."
+fi
