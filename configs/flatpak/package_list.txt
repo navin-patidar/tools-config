@@ -1,0 +1,13 @@
+com.google.Chrome
+dev.edfloreshz.CosmicTweaks
+app.devsuite.Ptyxis
+org.fedoraproject.MediaWriter
+org.gnome.Firmware
+org.gnome.baobab
+org.gnome.Extensions
+org.gnome.PowerStats
+org.gnome.ColorViewer
+com.mattjakeman.ExtensionManager
+net.nokyan.Resources
+com.github.marhkb.Pods
+com.surfshark.Surfshark

@@ -11,3 +11,6 @@ node_modules
 package-lock.json
 package.json
 .oh-my-zsh
+.gitconfig
+gh
+mozilla

@@ -1,7 +1,11 @@
-echo >> ${HOME}/.bashrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ${HOME}/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+# Run from this script's directory so the relative path below resolve
+cd "$(dirname "$0")"
 
-echo >> ${HOME}/.zshrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ${HOME}/.zshrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+echo "Install brew packages"
+brew bundle --file ../configs/brew/Brewfile
+
+echo "Install flatpkg packages"
+cat ../configs/flatpak/package_list.txt | xargs flatpak -y install
+
+echo "Refrash font cache"
+fc-cache -f -v
