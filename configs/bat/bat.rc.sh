@@ -1,1 +1,1 @@
-export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/config"
+export BAT_CONFIG_PATH="${TOOLS_CONFIG_DIR}/configs/bat/config"

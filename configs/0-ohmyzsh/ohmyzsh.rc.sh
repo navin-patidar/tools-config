@@ -1,5 +1,5 @@
 # Path to your Oh My Zsh installation.
-export ZSH="${XDG_CONFIG_HOME}/.oh-my-zsh"
+export ZSH="${TOOLS_CONFIG_DIR}/configs/.oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
 
 if [ ! -d "$ZSH" ]; then
@@ -38,7 +38,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source ${XDG_CONFIG_HOME}/0-ohmyzsh/p10k.zsh
+source ${TOOLS_CONFIG_DIR}/configs/0-ohmyzsh/p10k.zsh
 
 # Needed for alias-finder
 zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default

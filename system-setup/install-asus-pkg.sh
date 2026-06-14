@@ -16,3 +16,6 @@ systemctl enable --now power-profiles-daemon.service
 
 echo "Install cardwire"
 sudo dnf install cardwire
+
+# install tiling extensions
+sudo dnf install gnome-shell-extension-pop-shell
