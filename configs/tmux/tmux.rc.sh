@@ -10,6 +10,14 @@ if tmux has-session 2>/dev/null; then
   "$TPM_DIR/bin/install_plugins" &>/dev/null || true
 fi
 
+# Symlink tmux config into ~/.config so tmux picks it up naturally
+TMUX_CONF_SRC="${TOOLS_CONFIG_DIR}/configs/tmux/tmux.conf"
+TMUX_CONF_DST="${HOME}/.config/tmux/tmux.conf"
+if [[ -f "$TMUX_CONF_SRC" ]] && [[ ! -L "$TMUX_CONF_DST" || "$(readlink "$TMUX_CONF_DST")" != "$TMUX_CONF_SRC" ]]; then
+  mkdir -p "${HOME}/.config/tmux"
+  ln -sfn "$TMUX_CONF_SRC" "$TMUX_CONF_DST"
+fi
+
 alias tmux='tmux -f "${TOOLS_CONFIG_DIR}/configs/tmux/tmux.conf"'
 alias t="tmux"
 alias jk="tmux copy-mode"
