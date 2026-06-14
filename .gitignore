@@ -6,11 +6,9 @@ configs/uv
 configs/pulse
 configs/rclone
 configs/opencode
-configs/tmux/plugins
 node_modules
 package-lock.json
 package.json
-.oh-my-zsh
 .gitconfig
 gh
 mozilla

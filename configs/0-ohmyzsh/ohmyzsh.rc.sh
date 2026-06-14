@@ -1,5 +1,5 @@
 # Path to your Oh My Zsh installation.
-export ZSH="${TOOLS_CONFIG_DIR}/configs/.oh-my-zsh"
+export ZSH="${TOOLS_CONFIG_DATA}oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
 
 if [ ! -d "$ZSH" ]; then

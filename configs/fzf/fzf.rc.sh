@@ -58,4 +58,8 @@ _fzf_comprun() {
   esac
 }
 
-source  $(dirname $(realpath "$0"))/fzf-git.sh/fzf-git.sh
+FZF_GIT_DIR="${TOOLS_CONFIG_DATA}fzf/fzf-git.sh"
+if [ ! -d "$FZF_GIT_DIR" ]; then
+  git clone --depth=1 https://github.com/junegunn/fzf-git.sh.git "$FZF_GIT_DIR"
+fi
+source "$FZF_GIT_DIR/fzf-git.sh"
