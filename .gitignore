@@ -1,14 +1,1 @@
-lazy-lock.json
-configs/go
-configs/nextjs-nodejs
-configs/nvm
-configs/uv
-configs/pulse
-configs/rclone
-configs/opencode
-node_modules
-package-lock.json
-package.json
 .gitconfig
-gh
-mozilla
