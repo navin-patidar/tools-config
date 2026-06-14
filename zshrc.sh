@@ -42,11 +42,11 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 disable -r time
 
 # GNU time format: show elapsed time, CPU and I/O usage
-export TIME="\n %e real | %U user | %S sys | %P CPU\n /
-%I input | %O output | %F major faults | %R minor faults\n /
-%M KB max RSS | %W swaps \n /
-%c involuntary ctx | %w voluntary ctx\n /
-%r sock recv | %s sock send"
+export TIME="\n ⏱  %e real | 👤 %U user | ⚙  %S sys | 🖥  %P CPU\n \
+📥 %I input | 📤 %O output | 💥 %F major faults | 🔄 %R minor faults\n \
+💾 %M KB max RSS | 🔀 %W swaps \n \
+⚡ %c involuntary ctx | 🔄 %w voluntary ctx\n \
+📩 %r sock recv | 📨 %s sock send"
 
 which-pkg() {
   rpm -qf "$(which "$1" 2>/dev/null)" 2>/dev/null || dnf provides "$1"

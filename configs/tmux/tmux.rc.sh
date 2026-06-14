@@ -7,7 +7,7 @@ fi
 
 # Install plugins listed in tmux.conf if tmux server is running
 if tmux has-session 2>/dev/null; then
-  "$TPM_DIR/bin/install_plugins" &>/dev/null || true
+  "$TPM_DIR/bin/install_plugins" || true
 fi
 
 # Symlink tmux config into ~/.config so tmux picks it up naturally
