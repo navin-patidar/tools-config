@@ -23,3 +23,8 @@ brew "uv"
 brew "entr"
 brew "xsel"
 brew "rclone"
+# Package needed for docker
+brew "docker"
+brew "docker-engine"
+brew "rootlesskit"
+brew "slirp4netns"
