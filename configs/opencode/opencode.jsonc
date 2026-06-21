@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "llamacpp/local-model",
+
+  "provider": {
+    "llamacpp": {
+      "name": "llamacpp",
+      "api": "openai",
+      "options": {
+        "baseURL": "http://localhost:8080/v1"
+      },
+      "models": {
+        "local-model": {
+          "id": "local-model",
+          "name": "Local llama.cpp"
+        }
+      }
+    }
+  }
+}
