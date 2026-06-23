@@ -50,7 +50,6 @@ echo ""
 installed=0
 skipped=0
 failed=0
-needs_reload=false
 
 for uuid in "${entries[@]}"; do
   # Check both the running session (gnome-extensions info) and disk
@@ -101,19 +100,15 @@ except Exception:
   tmpdir="$(mktemp -d)"
   if curl -sL "https://extensions.gnome.org$dl_url" -o "$tmpdir/extension.zip" \
     && gnome-extensions install "$tmpdir/extension.zip" &>/dev/null; then
-    echo "      ✅ installed to disk"
+    echo "      ✅ installed"
     installed=$((installed+1))
-
-    # Enabling may fail until Shell is reloaded — that's okay
-    if ! gnome-extensions enable "$uuid" &>/dev/null; then
-      needs_reload=true
-    fi
+    gnome-extensions enable "$uuid" &>/dev/null || true
   else
     # gnome-extensions install failed — check if it was installed anyway
     if [[ -d "${EXTENSIONS_DIR}/${uuid}" ]]; then
-      echo "      ✅ installed to disk"
+      echo "      ✅ installed"
       installed=$((installed+1))
-      needs_reload=true
+      gnome-extensions enable "$uuid" &>/dev/null || true
     else
       echo "      ❌ failed"
       failed=$((failed+1))
@@ -124,9 +119,3 @@ done
 
 echo ""
 echo "✅ Done — $installed installed, $skipped skipped, $failed failed"
-
-if [[ "$needs_reload" == true ]]; then
-  echo ""
-  echo "⚠️  One or more extensions require a GNOME Shell reload to appear."
-  echo "   Press Alt+F2, type 'r', and press Enter to reload."
-fi
