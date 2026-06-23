@@ -3,10 +3,20 @@ default-profile-uuid='d4671f2a25753ff47b19e5706a2cbe2c'
 font-name='JetBrainsMono Nerd Font Medium 13'
 profile-uuids=['d4671f2a25753ff47b19e5706a2cbe2c']
 use-system-font=false
-window-size=(uint32 306, uint32 68)
+window-size=(uint32 298, uint32 68)
 
 [org/gnome/Ptyxis/Shortcuts]
 paste-clipboard='<ctrl>v'
+
+[org/gnome/Showtime/State]
+is-maximized=false
+
+[org/gnome/Snapshot]
+capture-mode='picture'
+is-maximized=false
+last-camera-id='webcam (V4L2)'
+window-height=640
+window-width=800
 
 [org/gnome/control-center]
 last-panel='keyboard'
@@ -52,7 +62,7 @@ color-scheme='prefer-dark'
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-software', 'org-gnome-ptyxis', 'rog-control-center', 'gnome-about-panel', 'com-google-chrome', 'gnome-power-panel', 'org-mozilla-firefox']
+application-children=['org-gnome-software', 'org-gnome-ptyxis', 'rog-control-center', 'gnome-about-panel', 'com-google-chrome', 'gnome-power-panel', 'org-mozilla-firefox', 'org-gnome-nautilus', 'org-gnome-showtime', 'net-thunderbird-thunderbird']
 
 [org/gnome/desktop/notifications/application/com-google-chrome]
 application-id='com.google.Chrome.desktop'
@@ -63,8 +73,17 @@ application-id='gnome-about-panel.desktop'
 [org/gnome/desktop/notifications/application/gnome-power-panel]
 application-id='gnome-power-panel.desktop'
 
+[org/gnome/desktop/notifications/application/net-thunderbird-thunderbird]
+application-id='net.thunderbird.Thunderbird.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-ptyxis]
 application-id='org.gnome.Ptyxis.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-showtime]
+application-id='org.gnome.Showtime.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
@@ -75,17 +94,34 @@ application-id='org.mozilla.firefox.desktop'
 [org/gnome/desktop/notifications/application/rog-control-center]
 application-id='rog-control-center.desktop'
 
+[org/gnome/desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
 [org/gnome/desktop/privacy]
 report-technical-problems=true
 
 [org/gnome/desktop/screen-time-limits]
 daily-limit-seconds=uint32 28800
 
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Settings.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Nautilus.desktop']
+
 [org/gnome/desktop/wm/keybindings]
 switch-applications=@as []
 switch-applications-backward=@as []
 switch-windows=['<Super>Tab']
 switch-windows-backward=['<Shift><Super>Tab']
+
+[org/gnome/gnome-system-monitor]
+maximized=false
+show-dependencies=false
+show-whose-processes='user'
+window-height=720
+window-width=800
+
+[org/gnome/gnome-system-monitor/proctree]
+col-26-visible=false
+col-26-width=0
 
 [org/gnome/login-screen]
 enable-fingerprint-authentication=true
@@ -96,10 +132,30 @@ enable-switchable-authentication=false
 migrated-gtk-settings=true
 
 [org/gnome/nautilus/window-state]
+initial-size=(890, 550)
 initial-size-file-chooser=(890, 550)
+maximized=true
+
+[org/gnome/papers]
+night-mode=false
+
+[org/gnome/papers/default]
+annot-color='yellow'
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+enable-spellchecking=true
+show-sidebar=true
+sizing-mode='automatic'
+
+[org/gnome/portal/filechooser/com.google.Chrome]
+last-folder-path='/run/media/navin/ex-hd-navin/fedora-backup/Documents'
+
+[org/gnome/portal/filechooser/net.thunderbird.Thunderbird]
+last-folder-path='/run/media/navin/ex-hd-navin/google_backup/takeout-20260618T040820Z-6-001/Takeout'
 
 [org/gnome/settings-daemon/plugins/color]
-night-light-last-coordinates=(40.708967126283326, -74.006)
+night-light-last-coordinates=(37.3688, -122.036)
 
 [org/gnome/settings-daemon/plugins/housekeeping]
 donation-reminder-last-shown=int64 1781324234936679
@@ -109,18 +165,21 @@ app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>
 command-history=['reload', 'r']
 disable-user-extensions=false
 disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com']
-enabled-extensions=['background-logo@fedorahosted.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']
+enabled-extensions=['background-logo@fedorahosted.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'pop-shell@system76.com']
 favorite-apps=['com.google.Chrome.desktop', 'kitty.desktop', 'rog-control-center.desktop', 'org.gnome.Software.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'com.mattjakeman.ExtensionManager.desktop']
 last-selected-power-profile='performance'
+remember-mount-password=false
 welcome-dialog-last-shown-version='50.0'
 
 [org/gnome/shell/extensions/dash-to-dock]
+always-center-icons=false
 apply-custom-theme=true
 background-opacity=0.80000000000000004
 custom-theme-shrink=false
 dance-urgent-applications=false
 dash-max-icon-size=48
 disable-overview-on-startup=false
+dock-fixed=true
 dock-position='LEFT'
 extend-height=true
 height-fraction=0.88
@@ -129,8 +188,10 @@ icon-size-fixed=false
 isolate-monitors=true
 isolate-workspaces=true
 middle-click-action='launch'
+multi-monitor=true
 preferred-monitor=-2
 preferred-monitor-by-connector='DP-5'
+preview-size-scale=0.23000000000000001
 shift-click-action='minimize'
 shift-middle-click-action='launch'
 show-apps-always-in-the-edge=false
@@ -141,11 +202,13 @@ show-mounts-network=true
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1781402360
+check-timestamp=int64 1782174707
 first-run=false
-flatpak-purge-timestamp=int64 1781408349
-packagekit-historical-updates-timestamp=uint64 1781320542
-update-notification-timestamp=int64 1781317386
+flatpak-purge-timestamp=int64 1782177261
+install-timestamp=int64 1781729396
+packagekit-historical-updates-timestamp=uint64 1781754336
+security-timestamp=int64 1781742454991711
+update-notification-timestamp=int64 1781658766
 
 [org/gnome/system/location]
 enabled=true
@@ -153,3 +216,17 @@ enabled=true
 [org/gtk/gtk4/settings/file-chooser]
 show-hidden=false
 sort-directories-first=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=167
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(26, 23)
+window-size=(1203, 902)
