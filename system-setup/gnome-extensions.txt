@@ -1,2 +1,7 @@
 dash-to-dock@micxgx.gmail.com
+pop-shell@system76.com
+launch-new-instance@gnome-shell-extensions.gcampax.github.com
+apps-menu@gnome-shell-extensions.gcampax.github.com
+places-menu@gnome-shell-extensions.gcampax.github.com
+window-list@gnome-shell-extensions.gcampax.github.com
 preserve-battery-health@marcosdalvarez.org
